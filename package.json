@@ -1,0 +1,18 @@
+{
+  "name": "youtube-backend",
+  "version": "1.0.0",
+  "description": "YouTube backend project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "backend",
+    "Rohan",
+    "Gope"
+  ],
+  "author": "Rohan Gope",
+  "license": "ISC"
+}
