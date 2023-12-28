@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "YouTube backend project",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "javascript",
@@ -14,5 +15,8 @@
     "Gope"
   ],
   "author": "Rohan Gope",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
 }
