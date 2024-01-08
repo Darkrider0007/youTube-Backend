@@ -27,6 +27,8 @@ const registerUser = asyncHandler(async (req, res) => {
     $or: [{ username }, { email }],
   });
 
+  // console.log("exitedUser: ", exitedUser);
+
   if (exitedUser) {
     throw new ApiError(409, "User with email and user already exists");
   }
@@ -37,6 +39,9 @@ const registerUser = asyncHandler(async (req, res) => {
   if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0){
     coverImageLocalPath = req.files.coverImage[0].path;
   }
+
+  // console.log("avatarLocalPath: ", avatarLocalPath);
+  // console.log("coverImageLocalPath: ", coverImageLocalPath);
 
   if (!avatarLocalPath) {
     throw new ApiError(400, "Avatar is required");
@@ -58,6 +63,8 @@ const registerUser = asyncHandler(async (req, res) => {
     coverImage: coverImage?.url || "",
   });
 
+  // console.log("user: ", user);
+
   const createdUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
@@ -68,7 +75,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   return res
     .status(201)
-    .json(new ApiResponse(200, createdUser, "User created Successfully"));
+    .json(new ApiResponse(201, createdUser, "User created Successfully"));
 });
 
 export { registerUser };
