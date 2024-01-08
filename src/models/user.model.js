@@ -21,7 +21,7 @@ const userSchema = new Schema(
         },
         fullName: {
             type: String,
-            required: [true, 'Full Name is required'],e,
+            required: [true, 'Full Name is required'],
             trim: true,
         },
         avatar: {
