@@ -270,9 +270,110 @@ const getCurrentUser = asyncHandler(async(req,res) => {
   .json(new ApiResponse(200, req.user, "User fetched successfully"))
 }) 
 
+const updateUserDetails = asyncHandler(async(req,res) => {
+  // get current user from auth middleware
+  // get updated details from frontend
+  // update the user details in db
+  // return response
+
+  const {fullName, email} = req.body;
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $set: {
+        fullName,
+        email
+      }
+    },
+    {
+      new: true
+    }
+  ).select("-password -refreshToken");
+
+  return res.
+  status(200)
+  .json(new ApiResponse(200, user, "User details updated successfully"))  
+})
+
+const updateAvatar = asyncHandler(async(req,res) => {
+  // get current user from auth middleware
+  // get avatar from frontend
+  // get avatar url from multer middleware
+  // upload avatar to cloudinary
+  // update avatar url in db
+  // return response
+
+  const avatarLocalPath = req.file?.path;
+  if(!avatarLocalPath){
+    throw new ApiError(400, "Avatar is missing");
+  }
+
+  const avatar = await uploadOnCloudinary(avatarLocalPath);
+
+  if(!avatar.url){
+    throw new ApiError(500, "Something went wrong while uploading avatar");
+  }
+
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $set: {
+        avatar: avatar.url
+      }
+    },
+    {
+      new: true
+    }
+  ).select("-password -refreshToken");
+
+  return res.
+  status(200)
+  .json(new ApiResponse(200, user, "User avatar updated successfully"))
+})
+
+const updateCoverImage = asyncHandler(async(req,res) => {
+  // get current user from auth middleware
+  // get cover image from frontend
+  // get cover image url from multer middleware
+  // upload cover image to cloudinary
+  // update cover image url in db
+  // return response
+
+  const coverImageLocalPath = req.file?.path;
+  if(!coverImageLocalPath){
+    throw new ApiError(400, "Cover Image is missing");
+  }
+
+  const coverImage = await uploadOnCloudinary(coverImageLocalPath);
+  if(!coverImage.url){
+    throw new ApiError(500, "Something went wrong while uploading cover image");
+  }
+
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $set:{
+        coverImage: coverImage.url
+      }
+    },
+    {
+      new:true
+    }
+  ).select("-password -refreshToken");
+
+  return res
+  .status(200)
+  .json(new ApiResponse(200, user, "User cover image updated successfully"))
+})
+
 export { 
   registerUser,
   loginUser,
   logoutUser,
-  refreshAccessToken
+  refreshAccessToken,
+  changeCurrentPassword,
+  getCurrentUser,
+  updateUserDetails,
+  updateAvatar,
+  updateCoverImage
 };
