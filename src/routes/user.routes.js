@@ -1,9 +1,24 @@
 import { Router } from "express";
-import { loginUser, logoutUser, refreshAccessToken, registerUser } from "../controllers/user.controller.js";
+import {
+  changeCurrentPassword,
+  getCurrentUser,
+  loginUser,
+  logoutUser,
+  refreshAccessToken,
+  registerUser,
+  updateUserAvatar,
+  updateUserCoverImage,
+  updateUserDetails,
+} from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router();
+
+router.route("/health").post((req, res) => {
+  console.log(req.body);
+  res.status(200).json({ message: "OK" });
+});
 
 router.route("/register").post(
   upload.fields([
@@ -16,7 +31,11 @@ router.route("/register").post(
 router.route("/login").post(loginUser);
 
 //Secured Routes
-router.route("/logout").post(verifyJWT,logoutUser);
-router.route("/refresh-token").post(refreshAccessToken)
-
+router.route("/logout").post(verifyJWT, logoutUser);
+router.route("/refresh-token").post(refreshAccessToken);
+router.route("/change-password").post(verifyJWT, changeCurrentPassword);
+router.route("/current-user").get(verifyJWT, getCurrentUser);
+router.route("/update-profile").post(verifyJWT, updateUserDetails);
+router.route("/avatar").patch(verifyJWT, upload.single("avatar"), updateUserAvatar)
+router.route("/cover-image").patch(verifyJWT, upload.single("coverImage"), updateUserCoverImage)
 export default router;
