@@ -17,11 +17,6 @@ import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.route("/health").post((req, res) => {
-  console.log(req.body);
-  res.status(200).json({ message: "OK" });
-});
-
 router.route("/register").post(
   upload.fields([
     { name: "avatar", maxCount: 1 },
