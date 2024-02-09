@@ -91,7 +91,6 @@ const getAllVideos = asyncHandler(async (req, res) => {
     });
   
     const videos = await Video.aggregate(pipelineArray)
-      .skip(pageOptions.limit * pageOptions.page)
       .limit(pageOptions.limit);
   
     return res.status(200).json(new ApiResponse(200, videos, "videos found"));
