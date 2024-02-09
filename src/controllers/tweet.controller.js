@@ -9,8 +9,6 @@ const createTweet = asyncHandler(async (req, res) => {
     //TODO: create tweet
     const {content} = req.body
     const userId = req.user?._id
-    console.log(userId)
-    console.log(content);
 
     const tweet = await Tweet.create({
         content,
@@ -74,11 +72,43 @@ const getUserTweets = asyncHandler(async (req, res) => {
 })
 
 const updateTweet = asyncHandler(async (req, res) => {
-    //TODO: update tweet
+    const {tweetId} = req.params
+    const {content} = req.body
+
+    if(!content){
+        throw new ApiError(400, "Content is required")
+    }
+
+    if(content.toString()==req.tweet.content.toString()){
+        throw new ApiError(400, "Content is the same")
+    }
+
+    const updatedTweet = await Tweet.findByIdAndUpdate(tweetId, {
+        content
+    }, {new: true})
+
+    if(!updatedTweet){
+        throw new ApiError(500, "Tweet not updated")
+    }
+
+    res
+    .status(200)
+    .json(new ApiResponse(200, {updatedTweet}, "Tweet updated successfully"))
 })
 
 const deleteTweet = asyncHandler(async (req, res) => {
     //TODO: delete tweet
+    const {tweetId} = req.params
+    
+    const deletedTweet = await Tweet.findByIdAndDelete(tweetId)
+
+    if(!deletedTweet){
+        throw new ApiError(500, "Tweet not deleted")
+    }
+
+    res
+    .status(200)
+    .json(new ApiResponse(200, {deletedTweet}, "Tweet deleted successfully"))
 })
 
 export {
