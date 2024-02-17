@@ -21,6 +21,7 @@ import healthCheckRouter from './routes/healthcheck.routes.js';
 import videoRouter from './routes/video.routes.js';
 import tweetRouter from './routes/tweet.routes.js';
 import subscriptionRouter from './routes/subscription.routes.js';
+import playlistRouter from './routes/playlist.routes.js';
 
 //router declaration
 app.use('/api/v1/users', userRouter);
@@ -28,6 +29,7 @@ app.use('/api/v1/healthCheck', healthCheckRouter);
 app.use('/api/v1/videos', videoRouter);
 app.use('/api/v1/tweet', tweetRouter);
 app.use('/api/v1/subscription', subscriptionRouter);
+app.use('/api/v1/playlist', playlistRouter);
 
 // http://localhost:8000/api/v1/users/register
 // http://localhost:8000/api/v1/healthCheck/
