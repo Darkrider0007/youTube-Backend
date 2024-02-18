@@ -141,6 +141,20 @@ const countCommentLikes = asyncHandler(async (req, res) => {
 })
 
 const countTweetLikes = asyncHandler(async (req, res) => {
+    const {tweetId} = req.params
+    if(!tweetId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const count = await Like.countDocuments({tweet: tweetId})
+
+    if(!count){
+        throw new ApiError(404, "No likes found for tweet")
+    }
+
+    res
+    .status(200)
+    .json(new ApiResponse(200, count, "Tweet Likes count"))
 })
 
 
