@@ -161,16 +161,102 @@ const getLikedVideos = asyncHandler(async (req, res) => {
     
         res
         .status(200)
-        .json(new ApiResponse(200, "Liked videos", likedVideos))
+        .json(new ApiResponse(200, likedVideos, "Liked videos"))
     } catch (error) {
         throw new ApiError(500, error.message)
     }
 })
 
 const getLikedComments = asyncHandler(async (req, res) => {
+    const userId = req.user._id
+    if(!userId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const likedComments = await Like.aggregate([
+        {
+            $match: {
+                likedBy: new mongoose.Types.ObjectId(userId),
+                comment: {$exists: true}
+            }
+        },
+        {
+            $lookup: {
+                from: "comments",
+                localField: "comment",
+                foreignField: "_id",
+                as: "comment"
+            }
+        },
+        {
+            $unwind: "$comment"
+        },
+        {
+            $project: {
+                _id: 1,
+                likedBy: 1,
+                comment: {
+                    _id: 1,
+                    text: 1,
+                    owner: 1,
+                }
+            }
+        }
+    ])
+
+    if(!likedComments){
+        throw new ApiError(404, "No liked comments found")
+    }
+
+    res
+    .status(200)
+    .json(new ApiResponse(200,likedComments, "Liked comments", ))
 })
 
 const getLikedTweets = asyncHandler(async (req, res) => {
+    const userId = req.user._id
+    if(!userId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const likedTweets = await Like.aggregate([
+        {
+            $match: {
+                likedBy: new mongoose.Types.ObjectId(userId),
+                tweet: {$exists: true}
+            }
+        },
+        {
+            $lookup: {
+                from: "tweets",
+                localField: "tweet",
+                foreignField: "_id",
+                as: "tweet"
+            }
+        },
+        {
+            $unwind: "$tweet"
+        },
+        {
+            $project: {
+                _id: 1,
+                likedBy: 1,
+                tweet: {
+                    _id: 1,
+                    text: 1,
+                    owner: 1,
+                }
+            }
+        }
+    ])
+
+    if(!likedTweets){
+        throw new ApiError(404, "No liked tweets found")
+    }
+
+    res
+    .status(200)
+    .json(new ApiResponse(200, likedTweets, "Liked tweets"))
 })
 
 const countVideoLikes = asyncHandler(async (req, res) => {
