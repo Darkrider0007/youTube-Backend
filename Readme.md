@@ -85,3 +85,6 @@ You can test the API endpoints using Postman. The collection for the YouTube-Bac
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/17782799-ac111c2f-1d2c-45fa-8cd1-6c02449a7cec?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D17782799-ac111c2f-1d2c-45fa-8cd1-6c02449a7cec%26entityType%3Dcollection%26workspaceId%3D2a982456-769e-4637-b969-5a17dae5e283)
 
 
+## Project Credits
+
+This project was developed as part of the [Chai aur Javascript Backend | Hindi](https://www.youtube.com/watch?v=NT299zIk2JY) tutorial series by [Chai aur Code](https://youtube.com/playlist?list=PLu71SKxNbfoBGh_8p_NS-ZAh6v7HhYqHW&si=Y5FFkjc6o56QNj3v) on YouTube. In the backend part only the user.controllers and rest of models,middlewares, routes and utills the  was taught by [Hitesh Choudhary Sir](https://www.youtube.com/@chaiaurcode) and the rest of the controllers developed by [Rohan Gope](https://github.com/Darkrider0007).
