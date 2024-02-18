@@ -5,8 +5,40 @@ import {ApiResponse} from "../utils/ApiResponse.js"
 import {asyncHandler} from "../utils/asyncHandler.js"
 
 const toggleVideoLike = asyncHandler(async (req, res) => {
-    const {videoId} = req.params
-    //TODO: toggle like on video
+    try {
+        const {videoId} = req.params
+        //TODO: toggle like on video
+        const userId = req.user._id
+
+        if(!videoId || !userId) {
+            throw new ApiError(400, "Invalid request")
+        }
+
+        const like = await Like.findOne({video: videoId, likedBy: userId})
+
+        if(!like){
+            const newLike = await Like.create({video: videoId, likedBy: userId})
+            if(!newLike){
+                throw new ApiError(500, "Failed to like video")
+            }
+
+            res.
+            status(201)
+            .json(new ApiResponse(201, "Video liked", newLike))
+        }
+        else{
+            const deletedLike = await Like.findByIdAndDelete(like._id)
+            if(!deletedLike){
+                throw new ApiError(500, "Failed to unlike video")
+            }
+            res
+            .status(200)
+            .json(new ApiResponse(200, "Video like removed", deletedLike))
+        }
+    } catch (error) {
+        throw new ApiError(500, error.message)
+    }
+
 })
 
 const toggleCommentLike = asyncHandler(async (req, res) => {
@@ -23,6 +55,51 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
 
 const getLikedVideos = asyncHandler(async (req, res) => {
     //TODO: get all liked videos
+    const userId = req.user._id
+
+    if(!userId) {
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const likedVideos = await Like.aggregate([
+        {
+            $match: {
+                likedBy: new mongoose.Types.ObjectId(userId),
+                video: {$exists: true}
+            }
+        },
+        {
+            $lookup: {
+                from: "videos",
+                localField: "video",
+                foreignField: "_id",
+                as: "video"
+            }
+        },
+        {
+            $unwind: "$video"
+        },
+        {
+            $project: {
+                _id: 1,
+                likedBy: 1,
+                video: {
+                    _id: 1,
+                    title: 1,
+                    thumbnail: 1,
+                    views: 1,
+                    duration: 1,
+                    isPublished: 1,                
+                },
+                
+                
+            }
+        }
+    ])
+
+    res
+    .status(200)
+    .json(new ApiResponse(200, "Liked videos", likedVideos))
 })
 
 const getLikedComments = asyncHandler(async (req, res) => {
@@ -52,5 +129,5 @@ export {
     countVideoLikes,
     countCommentLikes,
     countTweetLikes
-    
+
 }

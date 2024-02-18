@@ -111,7 +111,7 @@ const getCommentById = asyncHandler(async (req, res) => {
 
     res
       .status(200)
-      .json(new ApiResponse(200, { comment }, "Comment retrieved successfully"));
+      .json(new ApiResponse(200,  comment[0] , "Comment retrieved successfully"));
   } catch (error) {
     throw new ApiError(500, error.message);
   }
