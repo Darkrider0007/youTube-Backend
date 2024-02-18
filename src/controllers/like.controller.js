@@ -24,7 +24,7 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
 
             res.
             status(201)
-            .json(new ApiResponse(201, "Video liked", newLike))
+            .json(new ApiResponse(201, newLike, "Video liked",))
         }
         else{
             const deletedLike = await Like.findByIdAndDelete(like._id)
@@ -33,7 +33,7 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
             }
             res
             .status(200)
-            .json(new ApiResponse(200, "Video like removed", deletedLike))
+            .json(new ApiResponse(200, deletedLike, "Video like removed",))
         }
     } catch (error) {
         throw new ApiError(500, error.message)
@@ -44,12 +44,71 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
 const toggleCommentLike = asyncHandler(async (req, res) => {
     const {commentId} = req.params
     //TODO: toggle like on comment
+    if(!commentId){
+        throw new ApiError(400, "Invalid request")
+    }
+    const userId = req.user._id
 
+    if(!userId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const like = await Like.findOne({comment: commentId, likedBy: userId})
+
+    if(!like){
+        const newLike = await Like.create({comment: commentId, likedBy: userId})
+        if(!newLike){
+            throw new ApiError(500, "Failed to like comment")
+        }
+
+        res.
+        status(201)
+        .json(new ApiResponse(201, newLike, "Comment liked"))
+    }
+    else{
+        const deletedLike = await Like.findByIdAndDelete(like._id)
+        if(!deletedLike){
+            throw new ApiError(500, "Failed to unlike comment")
+        }
+        res
+        .status(200)
+        .json(new ApiResponse(200, deletedLike, "Comment like removed"))
+    }
 })
 
 const toggleTweetLike = asyncHandler(async (req, res) => {
     const {tweetId} = req.params
     //TODO: toggle like on tweet
+    if(!tweetId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const userId = req.user._id
+    if(!userId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const like = await Like.findOne({tweet: tweetId, likedBy: userId})
+
+    if(!like){
+        const newLike = await Like.create({tweet: tweetId, likedBy: userId})
+        if(!newLike){
+            throw new ApiError(500, "Failed to like tweet")
+        }
+
+        res.
+        status(201)
+        .json(new ApiResponse(201, newLike, "Tweet liked"))
+    }
+    else{
+        const deletedLike = await Like.findByIdAndDelete(like._id)
+        if(!deletedLike){
+            throw new ApiError(500, "Failed to unlike tweet")
+        }
+        res
+        .status(200)
+        .json(new ApiResponse(200, deletedLike, "Tweet like removed"))
+    }
 }
 )
 
