@@ -122,6 +122,10 @@ const countVideoLikes = asyncHandler(async (req, res) => {
 
     const count = await Like.countDocuments({video: videoId})
 
+    if(!count){
+        throw new ApiError(404, "No likes found for video")
+    }
+
     res
     .status(200)
     .json(new ApiResponse(200, count, "Video Likes count"))
@@ -134,6 +138,10 @@ const countCommentLikes = asyncHandler(async (req, res) => {
     }
 
     const count = await Like.countDocuments({comment: commentId})
+
+    if(!count){
+        throw new ApiError(404, "No likes found for comment")
+    }
 
     res
     .status(200)
