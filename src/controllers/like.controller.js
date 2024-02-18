@@ -124,10 +124,20 @@ const countVideoLikes = asyncHandler(async (req, res) => {
 
     res
     .status(200)
-    .json(new ApiResponse(200, count, "Likes count"))
+    .json(new ApiResponse(200, count, "Video Likes count"))
 })
 
 const countCommentLikes = asyncHandler(async (req, res) => {
+    const {commentId} = req.params
+    if(!commentId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const count = await Like.countDocuments({comment: commentId})
+
+    res
+    .status(200)
+    .json(new ApiResponse(200, count, "Comments Likes count"))
 })
 
 const countTweetLikes = asyncHandler(async (req, res) => {
