@@ -115,6 +115,16 @@ const getLikedTweets = asyncHandler(async (req, res) => {
 })
 
 const countVideoLikes = asyncHandler(async (req, res) => {
+    const {videoId} = req.params
+    if(!videoId){
+        throw new ApiError(400, "Invalid request")
+    }
+
+    const count = await Like.countDocuments({video: videoId})
+
+    res
+    .status(200)
+    .json(new ApiResponse(200, count, "Likes count"))
 })
 
 const countCommentLikes = asyncHandler(async (req, res) => {
