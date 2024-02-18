@@ -197,7 +197,7 @@ const getLikedComments = asyncHandler(async (req, res) => {
                 likedBy: 1,
                 comment: {
                     _id: 1,
-                    text: 1,
+                    content: 1,
                     owner: 1,
                 }
             }
