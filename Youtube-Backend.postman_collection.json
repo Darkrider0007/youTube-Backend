@@ -1,0 +1,2572 @@
+{
+	"info": {
+		"_postman_id": "ac111c2f-1d2c-45fa-8cd1-6c02449a7cec",
+		"name": "Youtube-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17782799",
+		"_collection_link": "https://www.postman.com/remango/workspace/youtube-backend/collection/17782799-ac111c2f-1d2c-45fa-8cd1-6c02449a7cec?action=share&source=collection_link&creator=17782799"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "Subscriber",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "one@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "fullName",
+									"value": "Subscriber",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/meta-chart (1).png"
+								},
+								{
+									"key": "coverImage",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/354041722_760778225785457_7204151350686577740_n_monochrome.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/users/register",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"one@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Server}}/users/login",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Server}}/users/logout",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Server}}/users/refresh-token",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"1234\",\r\n    \"newPassword\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Server}}/users/change-password",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "change-password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\":\"1234\",\r\n    \"newPassword\":\"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Server}}/users/change-password",
+									"host": [
+										"{{Server}}"
+									],
+									"path": [
+										"users",
+										"change-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-QVdKjWZ5QzPg/mdM5ljGN5925vs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jan 2024 15:01:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"Password changed successfully\",\n    \"data\": 200,\n    \"message\": {},\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "current-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Server}}/users/current-user",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"current-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Rohan\",\r\n    \"email\":\"change-one@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Server}}/users/health",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updateavatar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/logo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/users/avatar",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "coverImage",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coverImage",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/IMG_20220811_124301.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/users/cover-image",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"users",
+								"cover-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "healthcheck",
+			"item": [
+				{
+					"name": "{{Server}}/healthCheck/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Server}}/healthCheck/",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"healthCheck",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "videos",
+			"item": [
+				{
+					"name": "postVideo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/file_example_MP4_480_1_5MG.mp4"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/WhatsApp Image 2024-02-07 at 21.16.49_7508e70f.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/videos/",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"videos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVideo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Server}}/videos/65be90ef9cb017965976d2c4",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"videos",
+								"65be90ef9cb017965976d2c4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test2",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/download.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/videos/65be90ef9cb017965976d2c4",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"videos",
+								"65be90ef9cb017965976d2c4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test2",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/download.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/videos/65bf893aa7bae41e72a34c00",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"videos",
+								"65bf893aa7bae41e72a34c00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle isPublished",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test2",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/download.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/videos/toggle/publish/65bf8e377980e21c26ee2a30",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"videos",
+								"toggle",
+								"publish",
+								"65bf8e377980e21c26ee2a30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVideos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{Server}}/videos/",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"videos",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Twittes",
+			"item": [
+				{
+					"name": "create tweet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is a test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/tweet/",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"tweet",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tweets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Hello, this is a wonderful evening\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/tweet/user/65a7f52a09eef62c9e7f722c",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"tweet",
+								"user",
+								"65a7f52a09eef62c9e7f722c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update tweets",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Hello, this is a wonderful evening",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/tweet/65c6143c4c795fc8c5e5055f",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"tweet",
+								"65c6143c4c795fc8c5e5055f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete tweets",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Lets Update1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/tweet/65c6144c4c795fc8c5e50562",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"tweet",
+								"65c6144c4c795fc8c5e50562"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscription",
+			"item": [
+				{
+					"name": "Toggle subscription",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/pexels-peter-fowler-6394054 (Original).mp4"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/meta-chart (1).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/subscription/c/65a7f52a09eef62c9e7f722c",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"subscription",
+								"c",
+								"65a7f52a09eef62c9e7f722c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserChannelSubscribers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/pexels-peter-fowler-6394054 (Original).mp4"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/meta-chart (1).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/subscription/c/65a7f52a09eef62c9e7f722c",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"subscription",
+								"c",
+								"65a7f52a09eef62c9e7f722c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subscribed Channels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/pexels-peter-fowler-6394054 (Original).mp4"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/meta-chart (1).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/subscription/u/65c77329e1d9e028ff1d9006",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"subscription",
+								"u",
+								"65c77329e1d9e028ff1d9006"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "playlist",
+			"item": [
+				{
+					"name": "Create Playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/pexels-peter-fowler-6394054 (Original).mp4"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/meta-chart (1).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/playlist/",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"playlist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Playlist2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/playlist/",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"playlist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Playlist By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Playlist2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/playlist/user/65c77329e1d9e028ff1d9006",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"playlist",
+								"user",
+								"65c77329e1d9e028ff1d9006"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Playlist By Id Add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Playlist2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/playlist/65d05f2de5ddecbd9b05e7e6",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"playlist",
+								"65d05f2de5ddecbd9b05e7e6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Playlist By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "PlaylistTwo",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/playlist/65d05f2de5ddecbd9b05e7e6",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"playlist",
+								"65d05f2de5ddecbd9b05e7e6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Playlist By Id Remove",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Playlist2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/playlist/remove/65d059feb51be7be783f7add/65d05bdbb51be7be783f7ae0",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"playlist",
+								"remove",
+								"65d059feb51be7be783f7add",
+								"65d05bdbb51be7be783f7ae0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Add Comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Hit, the button",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/comment/65c5e2aed738784acb7cae92",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"comment",
+								"65c5e2aed738784acb7cae92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is also a content",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/comment/65c5e2aed738784acb7cae92",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"comment",
+								"65c5e2aed738784acb7cae92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/comment/c/65d0d24265bef9fdf13f1368",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"comment",
+								"c",
+								"65d0d24265bef9fdf13f1368"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is also a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/comment/c/65d0d24265bef9fdf13f1368",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"comment",
+								"c",
+								"65d0d24265bef9fdf13f1368"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comment by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/comment/c/65d1ae91022711e8cf4fd7fc",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"comment",
+								"c",
+								"65d1ae91022711e8cf4fd7fc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Like",
+			"item": [
+				{
+					"name": "Toggele Video Like",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like/toggle/v/65c5e2aed738784acb7cae92",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"toggle",
+								"v",
+								"65c5e2aed738784acb7cae92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Liked Videos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like/videos",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Videos Likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like//count/v/65c5e2aed738784acb7cae92",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"",
+								"count",
+								"v",
+								"65c5e2aed738784acb7cae92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggele Comment Like",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like/toggle/c/65d1ae91022711e8cf4fd7fc",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"toggle",
+								"c",
+								"65d1ae91022711e8cf4fd7fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Liked Comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like/comments",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Comments Likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like//count/c/65d1ae91022711e8cf4fd7fc",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"",
+								"count",
+								"c",
+								"65d1ae91022711e8cf4fd7fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggele Tweet Like",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like/toggle/t/65c6143c4c795fc8c5e5055f",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"toggle",
+								"t",
+								"65c6143c4c795fc8c5e5055f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Liked Tweets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like/tweets",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Tweet Likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status Code</th>",
+									"        <th>Success</th>",
+									"        <th>Message</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.statusCode}}</td>",
+									"        <td>{{response.success}}</td>",
+									"        <td>{{response.message}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "this is  a comment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is a test playlist",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/like//count/t/65c6143c4c795fc8c5e5055f",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"like",
+								"",
+								"count",
+								"t",
+								"65c6143c4c795fc8c5e5055f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "get stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Hello, this is a wonderful evening\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/dashboard/stats",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"dashboard",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get videos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Hello, this is a wonderful evening\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Server}}/dashboard/videos",
+							"host": [
+								"{{Server}}"
+							],
+							"path": [
+								"dashboard",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
