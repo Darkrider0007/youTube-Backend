@@ -25,9 +25,32 @@ const getLikedVideos = asyncHandler(async (req, res) => {
     //TODO: get all liked videos
 })
 
+const getLikedComments = asyncHandler(async (req, res) => {
+})
+
+const getLikedTweets = asyncHandler(async (req, res) => {
+})
+
+const countVideoLikes = asyncHandler(async (req, res) => {
+})
+
+const countCommentLikes = asyncHandler(async (req, res) => {
+})
+
+const countTweetLikes = asyncHandler(async (req, res) => {
+})
+
+
+
 export {
     toggleCommentLike,
     toggleTweetLike,
     toggleVideoLike,
-    getLikedVideos
+    getLikedVideos,
+    getLikedComments,
+    getLikedTweets,
+    countVideoLikes,
+    countCommentLikes,
+    countTweetLikes
+    
 }
