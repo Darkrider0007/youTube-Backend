@@ -55,51 +55,57 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
 
 const getLikedVideos = asyncHandler(async (req, res) => {
     //TODO: get all liked videos
-    const userId = req.user._id
-
-    if(!userId) {
-        throw new ApiError(400, "Invalid request")
-    }
-
-    const likedVideos = await Like.aggregate([
-        {
-            $match: {
-                likedBy: new mongoose.Types.ObjectId(userId),
-                video: {$exists: true}
-            }
-        },
-        {
-            $lookup: {
-                from: "videos",
-                localField: "video",
-                foreignField: "_id",
-                as: "video"
-            }
-        },
-        {
-            $unwind: "$video"
-        },
-        {
-            $project: {
-                _id: 1,
-                likedBy: 1,
-                video: {
-                    _id: 1,
-                    title: 1,
-                    thumbnail: 1,
-                    views: 1,
-                    duration: 1,
-                    isPublished: 1,                
-                },
-                
-                
-            }
+    try {
+        const userId = req.user._id
+    
+        if(!userId) {
+            throw new ApiError(400, "Invalid request")
         }
-    ])
+    
+        const likedVideos = await Like.aggregate([
+            {
+                $match: {
+                    likedBy: new mongoose.Types.ObjectId(userId),
+                    video: {$exists: true}
+                }
+            },
+            {
+                $lookup: {
+                    from: "videos",
+                    localField: "video",
+                    foreignField: "_id",
+                    as: "video"
+                }
+            },
+            {
+                $unwind: "$video"
+            },
+            {
+                $project: {
+                    _id: 1,
+                    likedBy: 1,
+                    video: {
+                        _id: 1,
+                        title: 1,
+                        thumbnail: 1,
+                        views: 1,
+                        duration: 1,
+                        isPublished: 1,                
+                    }        
+                }
+            }
+        ])
 
-    res
-    .status(200)
-    .json(new ApiResponse(200, "Liked videos", likedVideos))
+        if(!likedVideos){
+            throw new ApiError(404, "No liked videos found")
+        }
+    
+        res
+        .status(200)
+        .json(new ApiResponse(200, "Liked videos", likedVideos))
+    } catch (error) {
+        throw new ApiError(500, error.message)
+    }
 })
 
 const getLikedComments = asyncHandler(async (req, res) => {
